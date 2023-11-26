@@ -2,6 +2,10 @@ resource "aws_api_gateway_rest_api" "route53_api" {
   name        = "Route53FlashpointAPI"
   description = "API for Route53Flashpoint DNS Management"
   tags        = var.common_tags
+
+  endpoint_configuration {
+    types = ["REGIONAL"]
+  }
 }
 
 resource "aws_api_gateway_deployment" "route53_api_deployment" {
