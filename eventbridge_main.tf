@@ -4,6 +4,7 @@ resource "aws_cloudwatch_event_rule" "check_expired_records" {
   name                = "check-expired-route53-records"
   description         = "Trigger Lambda to check and delete expired Route53 DNS records"
   schedule_expression = var.expired_records_check_rate_expression
+  tags                = var.common_tags
 }
 
 resource "aws_cloudwatch_event_target" "invoke_lambda" {
