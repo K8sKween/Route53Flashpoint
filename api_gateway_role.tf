@@ -27,7 +27,7 @@ resource "aws_iam_role_policy" "api_gateway_lambda_policy" {
           "lambda:InvokeFunction"
         ],
         Effect = "Allow",
-        Resource = "*"
+        Resource = [aws_lambda_function.create_record_lambda.arn, aws_lambda_function.delete_expired_records_lambda.arn, aws_lambda_function.records_report_lambda.arn]
       },
     ],
   })
