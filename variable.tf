@@ -14,8 +14,8 @@ variable "hosted_zone_id" {
   description = "The ID of the hosted zone in which to create the record."
 
   validation {
-    condition     = length(regexall("^[A-Z0-9]{10,20}$", var.hosted_zone_id)) == 1
-    error_message = "The hosted_zone_id must be a valid ID in the format of a string between 10 and 20 characters, containing only uppercase letters and digits."
+    condition     = length(regexall("^[A-Z0-9]{10,256}$", var.hosted_zone_id)) == 1
+    error_message = "The hosted_zone_id must be a valid ID in the format of a string between 10 and 256 characters, containing only uppercase letters and digits."
   }
 }
 
